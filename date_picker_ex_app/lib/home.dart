@@ -87,17 +87,20 @@ class _HomeState extends State<Home> {
     setState(() {});
   }
 
-  void checkNowTimeWithSelectTime(DateTime now) {
+  void checkNowTimeWithSelectTime(DateTime time) {
+
     if (_selectDateTime != null) {
       _selectDateTimeText =
           '선택한 시간 : ${returnNowTimeExceptSeconds(_selectDateTime!)}';
-      if (now.year == _selectDateTime!.year &&
-          now.month == _selectDateTime!.month &&
-          now.day == _selectDateTime!.day &&
-          now.hour == _selectDateTime!.hour &&
-          now.minute == _selectDateTime!.minute) {
+      // if (time.year == _selectDateTime!.year &&
+      //     time.month == _selectDateTime!.month &&
+      //     time.day == _selectDateTime!.day &&
+      //     time.hour == _selectDateTime!.hour &&
+      //     time.minute == _selectDateTime!.minute)
+      if(time.toString().substring(0,16) == _selectDateTime.toString().substring(0,16)) 
+      {
         
-        _backgroundColor = now.second % 2 == 0? Colors.amberAccent:Colors.redAccent;
+        _backgroundColor = time.second % 2 == 0? Colors.amberAccent:Colors.redAccent;
       } else {
         _backgroundColor = Colors.white;
       }
